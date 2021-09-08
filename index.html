@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/styles/reset.css" />
     <link rel="stylesheet" href="./assets/styles/main.css" />
-    <title>Adivinar el número</title>
+    <title>Evaluación intermedia 2</title>
   </head>
   <body>
     <header>
@@ -14,17 +14,13 @@
     </header>
     <main class="container">
       <form action="">
-        <label for="choosenumber">Introduce aquí tu número: </label>
-        <input type="text" id="choose" class="js-choose" />
-        <input type="button" value="Prueba" class="js-check" />
-        <input type="text" id="clue" class="js-clue" placeholder="Pista: " />
-        <input
-          type="text"
-          id="try"
-          class="js-try"
-          placeholder="Número de intentos: "
-        />
+        <label for="number">Introduce aquí tu número</label>
+        <input type="number" class="js_useroption" />
+        <input class="js_btn" type="button" value="Prueba" />
       </form>
+
+      <p class="js_clue">Pista: Escribe el número y dale a Prueba</p>
+      <p class="js_try">Número de intentos: 0</p>
     </main>
     <script src="./assets/js/main.js"></script>
   </body>

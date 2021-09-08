@@ -1,40 +1,52 @@
 'use strict';
 // variables globales
-const choose = document.querySelector(".js-choose");
-const check = document.querySelector(".js-check");
-const clue = document.querySelector(".js-clue");
-const tryOn = document.querySelector(".js-try");
-const randomNumber = getRandomNumber();
-const count = 0;
+const userOption = document.querySelector(".js_useroption");
+const button = document.querySelector(".js_btn");
+const clue = document.querySelector(".js_clue");
+const tryOn = document.querySelector(".js_try");
+const randomNumber = getRandomNumber(10);
+let count = 0;
+
 // funciones
+
 function getRandomNumber(max) {
-    return Math.ceil(Math.random() * 100);
+    return Math.ceil(Math.random() * max);
 }
 
-function getNumber() {
+ function getNumber() {
+    const userNumber = userOption.value;
+    console.log(userNumber);
 
-    if (choose > randomNumber) {
-        clue.innerHTML="Demasiado alto";
-    } else if (choose < randomNumber) {
-        clue.innerHTML="Demasiado bajo";
+     if (userNumber === randomNumber) {
+        clue.innerHTML='Has ganado campenona!!!';
 
-    } else if (choose === randomNumber) {
-        clue.innerHTML="Has ganado campenona!!!";
+    } else if (userNumber < randomNumber) {
+        clue.innerHTML= 'Demasiado bajo';
 
-    } else {
-        clue.innerHTML="El número debe estar entre 1 y 100";
+      } else if (userNumber > randomNumber) {
+         clue.innerHTML= 'Demasiado alto';
+
+      } else if (userNumber <= 0 || randomNumber > 10) {
+          clue.innerHTML= 'El número debe estar entre 1 y 100';
+
+     } 
 
     }
-}
 
 function countClick (){
-    count += 1;
+    count++;
+    tryOn.innerHTML= `Número de intentos: ${count}`;
+  }
+
+function handlebutton() {
+    console.log('Mi numero aleatorio es ' + randomNumber);
 }
 
-function handleBtn() {
-        console.log("Mi número aleatorio es " + randomNumber);
+function handleUser (event) {
+    handlebutton();
+    getNumber();
+    countClick();
 }
 
- // eventos
-check.addEventListener("click", handleBtn);
-choose.addEventListener("change", getNumber)
+  // eventos
+ button.addEventListener("click", handleUser); 
