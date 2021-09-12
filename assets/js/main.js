@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 // variables globales
 const userOption = document.querySelector(".js_useroption");
 const button = document.querySelector(".js_btn");
@@ -9,9 +9,16 @@ let count = 0;
 
 // funciones
 
+document.querySelector('.js_form').addEventListener('submit', (ev) => {ev.preventDefault();});
+
 function getRandomNumber(max) {
     return Math.ceil(Math.random() * max);
 }
+
+function paintText(message){
+    clue.innerHTML = message;
+}
+
 
  function getNumber() {
     
@@ -19,16 +26,16 @@ function getRandomNumber(max) {
     console.log(userNumber);
 
     if  (userNumber < randomNumber /*&& userNumber >= 0*/) {
-        clue.innerHTML= 'Demasiado bajo';
+        paintText ('Demasiado bajo');
 
-     } else if (userNumber > randomNumber /*&& userNumber <= 100*/) {
-         clue.innerHTML= 'Demasiado alto';
+     } else if (userNumber > randomNumber && userNumber <= 100) {
+        paintText ('Demasiado alto');
 
       } else if (userNumber === randomNumber) {
-        clue.innerHTML='Has ganado campenona!!!';
+        paintText('Has ganado campenona!!!');
       
     }else if (userNumber > 101) {
-          clue.innerHTML= 'El número debe estar entre 1 y 100';
+        paintText('El número debe estar entre 1 y 100');
 
      } 
 
