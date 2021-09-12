@@ -4,7 +4,7 @@ const userOption = document.querySelector(".js_useroption");
 const button = document.querySelector(".js_btn");
 const clue = document.querySelector(".js_clue");
 const tryOn = document.querySelector(".js_try");
-const randomNumber = getRandomNumber(10);
+const randomNumber = getRandomNumber(100);
 let count = 0;
 
 // funciones
@@ -14,19 +14,20 @@ function getRandomNumber(max) {
 }
 
  function getNumber() {
-    const userNumber = userOption.value;
+    
+    const userNumber = parseInt(userOption.value);
     console.log(userNumber);
 
-     if (userNumber === randomNumber) {
-        clue.innerHTML='Has ganado campenona!!!';
-
-    } else if (userNumber < randomNumber) {
+    if  (userNumber < randomNumber /*&& userNumber >= 0*/) {
         clue.innerHTML= 'Demasiado bajo';
 
-      } else if (userNumber > randomNumber) {
+     } else if (userNumber > randomNumber /*&& userNumber <= 100*/) {
          clue.innerHTML= 'Demasiado alto';
 
-      } else if (userNumber <= 0 || randomNumber > 10) {
+      } else if (userNumber === randomNumber) {
+        clue.innerHTML='Has ganado campenona!!!';
+      
+    }else if (userNumber > 101) {
           clue.innerHTML= 'El número debe estar entre 1 y 100';
 
      } 
